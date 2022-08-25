@@ -29,16 +29,7 @@ namespace Quiz
 				
 				Console.WriteLine("QUESTION {0}", i + 1);
 				WriteQuestionWithAnswers(qd);
-
-				if(AnsweredCorrectly(qd))
-				{
-					Console.WriteLine("Correct!");
-				}
-				else
-				{
-					Console.WriteLine("Wrong!");
-				}
-
+				WriteResult(qd);
 				Console.WriteLine();
 			}
 		}
@@ -54,6 +45,18 @@ namespace Quiz
 			for (int a = 0; a < qd.Answers!.Length; ++a)
 			{
 				Console.WriteLine("{0}) {1}", a + 1, qd.Answers[a]);
+			}
+		}
+
+		private void WriteResult(QuestionData qd)
+		{
+			if(AnsweredCorrectly(qd))
+			{
+				Console.WriteLine("Correct!");
+			}
+			else
+			{
+				Console.WriteLine("Wrong!");
 			}
 		}
 
