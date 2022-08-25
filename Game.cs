@@ -48,18 +48,7 @@ namespace Quiz
 			}
 		}
 
-		private void WriteResult(QuestionData qd)
-		{
-			if(AnsweredCorrectly(qd))
-			{
-				Console.WriteLine("Correct!");
-			}
-			else
-			{
-				Console.WriteLine("Wrong!");
-			}
-		}
-
+		private void WriteResult(QuestionData qd) => Console.WriteLine(AnsweredCorrectly(qd) ? "Correct!" : "Wrong!");
 		private bool AnsweredCorrectly(QuestionData qd) => NumberFromInput(1, qd.Answers!.Length) == qd.CorrectAnswer;
 
 		private int NumberFromInput(int min, int max)
