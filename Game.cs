@@ -29,6 +29,15 @@ namespace Quiz
 				
 				Console.WriteLine("QUESTION {0}", i + 1);
 				Console.WriteLine(qd.Question);
+
+				if(NumberFromInput(1, qd.Answers!.Length) == qd.CorrectAnswer)
+				{
+					Console.WriteLine("Correct!");
+				}
+				else
+				{
+					Console.WriteLine("Wrong!");
+				}
 			}
 		}
 
