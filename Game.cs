@@ -31,5 +31,21 @@ namespace Quiz
 				Console.WriteLine(qd.Question);
 			}
 		}
+
+		private int NumberFromInput(int min, int max)
+		{
+			string? s;
+			int number;
+
+			do
+			{
+				Console.WriteLine("Type number from {0} to {1}: ", min, max);
+				
+				s = Console.ReadLine();
+			}
+			while (!int.TryParse(s, out number) || number < min || number > max);
+
+			return number;
+		}
 	}
 }
