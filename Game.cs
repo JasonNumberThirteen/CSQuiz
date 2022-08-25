@@ -5,24 +5,19 @@ namespace Quiz
 {
 	class Game
 	{
+		private List<QuestionData>? questionsData;
+		
 		public Game()
 		{
 			Console.WriteLine("QUIZ");
+			GetQuestionsData();
+		}
 
+		private void GetQuestionsData()
+		{
 			string data = File.ReadAllText("questions.json");
-			List<QuestionData>? questionsData = JsonSerializer.Deserialize<List<QuestionData>>(data);
 
-			foreach (QuestionData qd in questionsData!)
-			{
-				Console.WriteLine(qd.Question);
-
-				foreach (string answer in qd.Answers!)
-				{
-					Console.WriteLine("\t{0}", answer);
-				}
-
-				Console.WriteLine(qd.CorrectAnswer);
-			}
+			questionsData = JsonSerializer.Deserialize<List<QuestionData>>(data);
 		}
 	}
 }
