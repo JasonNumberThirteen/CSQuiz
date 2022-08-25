@@ -28,9 +28,7 @@ namespace Quiz
 				QuestionData qd = questionsData[i];
 				
 				Console.WriteLine("QUESTION {0}", i + 1);
-				Console.WriteLine(qd.Question);
-
-				WriteAnswers(qd);
+				WriteQuestionWithAnswers(qd);
 
 				if(AnsweredCorrectly(qd))
 				{
@@ -43,6 +41,12 @@ namespace Quiz
 
 				Console.WriteLine();
 			}
+		}
+
+		private void WriteQuestionWithAnswers(QuestionData qd)
+		{
+			Console.WriteLine(qd.Question);
+			WriteAnswers(qd);
 		}
 
 		private void WriteAnswers(QuestionData qd)
