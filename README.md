@@ -4,6 +4,7 @@
 ## Table of Contents
 * [General information](#general-information)
 * [Used technologies](#used-technologies)
+* [Features](#features)
 * [Usage](#usage)
 * [Credits](#credits)
 
@@ -18,8 +19,11 @@
 - "Visual Studio Code" IDE for writing code
 - .NET 6.0.400 Compiler
 
+## Features
+- Editable questions in external JSON file
+
 ## Usage
-- Type a whole number when prompted
+- Type a whole number when prompted in given range (from-to)
 
 ## Credits
 - This project was made by [Jason](https://jasonxiii.pl "Jason. Gry, muzyka, kursy, artykuły, programy i filmy!")
