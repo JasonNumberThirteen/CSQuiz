@@ -12,6 +12,7 @@ namespace Quiz
 			Console.WriteLine("QUIZ");
 			GetQuestionsData();
 			AskQuestions();
+			Console.WriteLine("This is the end!");
 		}
 
 		private void GetQuestionsData()
