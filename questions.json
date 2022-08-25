@@ -1,33 +1,33 @@
 [
 	{
-		"question": "How many is 34*45?",
-		"answers": [
+		"Question": "How many is 34*45?",
+		"Answers": [
 			"782",
 			"1521",
 			"2025",
 			"1806"
 		],
-		"correctAnswer": 3
+		"CorrectAnswer": 3
 	},
 	{
-		"question": "What is the value of natural logarithm (approximately)?",
-		"answers": [
+		"Question": "What is the value of natural logarithm (approximately)?",
+		"Answers": [
 			"2.718",
 			"1.414",
 			"0.577",
 			"1.732"
 		],
-		"correctAnswer": 1
+		"CorrectAnswer": 1
 	},
 	{
-		"question": "How many hosts has ARPANET connected to each other in 1969?",
-		"answers": [
+		"Question": "How many hosts has ARPANET connected to each other in 1969?",
+		"Answers": [
 			"2",
 			"7",
 			"3",
 			"1",
 			"4"
 		],
-		"correctAnswer": 5
+		"CorrectAnswer": 5
 	}
 ]
