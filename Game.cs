@@ -30,6 +30,11 @@ namespace Quiz
 				Console.WriteLine("QUESTION {0}", i + 1);
 				Console.WriteLine(qd.Question);
 
+				for (int a = 0; a < qd.Answers!.Length; ++a)
+				{
+					Console.WriteLine("{0}) {1}", a + 1, qd.Answers[a]);
+				}
+
 				if(NumberFromInput(1, qd.Answers!.Length) == qd.CorrectAnswer)
 				{
 					Console.WriteLine("Correct!");
