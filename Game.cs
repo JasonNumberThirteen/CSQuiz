@@ -35,7 +35,7 @@ namespace Quiz
 					Console.WriteLine("{0}) {1}", a + 1, qd.Answers[a]);
 				}
 
-				if(NumberFromInput(1, qd.Answers!.Length) == qd.CorrectAnswer)
+				if(AnsweredCorrectly(qd))
 				{
 					Console.WriteLine("Correct!");
 				}
@@ -45,6 +45,8 @@ namespace Quiz
 				}
 			}
 		}
+
+		private bool AnsweredCorrectly(QuestionData qd) => NumberFromInput(1, qd.Answers!.Length) == qd.CorrectAnswer;
 
 		private int NumberFromInput(int min, int max)
 		{
