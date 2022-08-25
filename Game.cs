@@ -43,6 +43,8 @@ namespace Quiz
 				{
 					Console.WriteLine("Wrong!");
 				}
+
+				Console.WriteLine();
 			}
 		}
 
@@ -55,7 +57,7 @@ namespace Quiz
 
 			do
 			{
-				Console.WriteLine("Type number from {0} to {1}: ", min, max);
+				Console.Write("Type number from {0} to {1}: ", min, max);
 				
 				s = Console.ReadLine();
 			}
