@@ -6,6 +6,7 @@ namespace Quiz
 	class Game
 	{
 		private List<QuestionData>? questionsData;
+		private Input input = new Input();
 		private int points = 0;
 		
 		public Game()
@@ -65,23 +66,7 @@ namespace Quiz
 		private void WriteResult(bool answeredCorrectly) => Console.WriteLine(answeredCorrectly ? Constants.CORRECT_ANSWER_MESSAGE : Constants.WRONG_ANSWER_MESSAGE);
 		private void WritePoints() => Console.WriteLine("{0}\nYou have {1} {2}!", Constants.GAINED_POINT_MESSAGE, ++points, points > 1 ? "points" : "point");
 
-		private bool AnsweredCorrectly(QuestionData qd) => NumberFromInput(1, qd.Answers!.Length) == qd.CorrectAnswer;
-
-		private int NumberFromInput(int min, int max)
-		{
-			string? s;
-			int number;
-
-			do
-			{
-				Console.Write("Type number from {0} to {1}: ", min, max);
-				
-				s = Console.ReadLine();
-			}
-			while (!int.TryParse(s, out number) || number < min || number > max);
-
-			return number;
-		}
+		private bool AnsweredCorrectly(QuestionData qd) => input.NumberFromInput(1, qd.Answers!.Length) == qd.CorrectAnswer;
 
 		private void WriteEnd()
 		{
