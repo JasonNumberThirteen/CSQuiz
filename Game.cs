@@ -10,7 +10,7 @@ namespace Quiz
 		
 		public Game()
 		{
-			Console.WriteLine("QUIZ");
+			Console.WriteLine(Constants.GAME_TITLE);
 			GetQuestionsData();
 			AskQuestions();
 			WriteEnd();
@@ -18,7 +18,7 @@ namespace Quiz
 
 		private void GetQuestionsData()
 		{
-			string data = File.ReadAllText("questions.json");
+			string data = File.ReadAllText(Constants.QUESTIONS_FILENAME);
 
 			questionsData = JsonSerializer.Deserialize<List<QuestionData>>(data);
 		}
@@ -29,7 +29,7 @@ namespace Quiz
 			{
 				QuestionData qd = questionsData[i];
 				
-				Console.WriteLine("QUESTION {0}", i + 1);
+				Console.WriteLine("{0} {1}", Constants.QUESTION_MESSAGE, i + 1);
 				WriteQuestionWithAnswers(qd);
 				CheckAnswer(qd);
 				Console.WriteLine();
@@ -62,8 +62,8 @@ namespace Quiz
 			}
 		}
 
-		private void WriteResult(bool answeredCorrectly) => Console.WriteLine(answeredCorrectly ? "Correct!" : "Wrong!");
-		private void WritePoints() => Console.WriteLine("You have gained a point!\nYou have {0} {1}!", ++points, points > 1 ? "points" : "point");
+		private void WriteResult(bool answeredCorrectly) => Console.WriteLine(answeredCorrectly ? Constants.CORRECT_ANSWER_MESSAGE : Constants.WRONG_ANSWER_MESSAGE);
+		private void WritePoints() => Console.WriteLine("{0}\nYou have {1} {2}!", Constants.GAINED_POINT_MESSAGE, ++points, points > 1 ? "points" : "point");
 
 		private bool AnsweredCorrectly(QuestionData qd) => NumberFromInput(1, qd.Answers!.Length) == qd.CorrectAnswer;
 
@@ -85,7 +85,7 @@ namespace Quiz
 
 		private void WriteEnd()
 		{
-			Console.WriteLine("This is the end!\nPOINTS: {0}/{1}", points, questionsData?.Count);
+			Console.WriteLine("{0}\nPOINTS: {1}/{2}", Constants.GAME_END_MESSAGE, points, questionsData?.Count);
 		}
 	}
 }
