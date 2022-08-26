@@ -9,7 +9,7 @@ namespace Quiz
 
 			do
 			{
-				Console.Write("Type number from {0} to {1}: ", min, max);
+				Console.Write("{0} {1} {2} {3} {4}: ", Constants.TYPE_NUMBER_STRING, Constants.FROM_STRING, min, Constants.TO_STRING, max);
 				
 				s = Console.ReadLine();
 			}
