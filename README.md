@@ -21,6 +21,8 @@
 
 ## Features
 - Editable questions in external JSON file
+- Scoring system which adds points to player for every correct answer
+- Amount of points is individual for every single question
 
 ## Usage
 - Type a whole number when prompted in given range (from-to)
