@@ -11,10 +11,16 @@ namespace Quiz
 		
 		public Game()
 		{
-			Console.WriteLine(Constants.GAME_TITLE);
+			WriteGameTitle();
 			GetQuestionsData();
 			AskQuestions();
 			WriteEnd();
+			WriteTotalPoints();
+		}
+
+		private void WriteGameTitle()
+		{
+			Console.WriteLine(Constants.GAME_TITLE);
 		}
 
 		private void GetQuestionsData()
@@ -30,25 +36,35 @@ namespace Quiz
 			{
 				QuestionData qd = questionsData[i];
 				
-				Console.WriteLine("{0} {1}", Constants.QUESTION_MESSAGE, i + 1);
-				WriteQuestionWithAnswers(qd);
+				WriteQuestionHeader(i + 1);
+				WriteQuestion(qd);
+				WriteAnswers(qd);
 				CheckAnswer(qd);
 				Console.WriteLine();
 			}
 		}
 
-		private void WriteQuestionWithAnswers(QuestionData qd)
+		private void WriteQuestionHeader(int number)
+		{
+			Console.WriteLine("{0} {1}", Constants.QUESTION_MESSAGE, number);
+		}
+
+		private void WriteQuestion(QuestionData qd)
 		{
 			Console.WriteLine(qd.Question);
-			WriteAnswers(qd);
 		}
 
 		private void WriteAnswers(QuestionData qd)
 		{
 			for (int a = 0; a < qd.Answers!.Length; ++a)
 			{
-				Console.WriteLine("{0}) {1}", a + 1, qd.Answers[a]);
+				WriteAnswer(a + 1, qd.Answers[a]);
 			}
+		}
+
+		private void WriteAnswer(int number, string answer)
+		{
+			Console.WriteLine("{0}) {1}", number, answer);
 		}
 
 		private void CheckAnswer(QuestionData qd)
@@ -70,7 +86,12 @@ namespace Quiz
 
 		private void WriteEnd()
 		{
-			Console.WriteLine("{0}\nPOINTS: {1}/{2}", Constants.GAME_END_MESSAGE, points, questionsData?.Count);
+			Console.WriteLine(Constants.GAME_END_MESSAGE);
+		}
+
+		private void WriteTotalPoints()
+		{
+			Console.WriteLine("POINTS: {0}/{1}", points, questionsData?.Count);
 		}
 	}
 }
