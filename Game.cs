@@ -8,15 +8,16 @@ namespace Quiz
 		private List<QuestionData>? questionsData;
 		private Communicator communicator = new Communicator();
 		private Input input = new Input();
-		private int points = 0;
+		private PointsCounter pointsCounter = new PointsCounter();
 		
 		public Game()
 		{
 			communicator.WriteGameTitle();
 			GetQuestionsData();
+			AddEventToPointsCounter();
 			AskQuestions();
 			communicator.WriteEnd();
-			communicator.WriteTotalPoints(points, questionsData?.Count);
+			communicator.WriteTotalPoints(pointsCounter.Points, questionsData?.Count);
 		}
 
 		private void GetQuestionsData()
@@ -24,6 +25,11 @@ namespace Quiz
 			string data = File.ReadAllText(Constants.QUESTIONS_FILENAME);
 
 			questionsData = JsonSerializer.Deserialize<List<QuestionData>>(data);
+		}
+
+		private void AddEventToPointsCounter()
+		{
+			pointsCounter.OnIncrease += communicator.WritePoints;
 		}
 
 		private void AskQuestions()
@@ -48,7 +54,7 @@ namespace Quiz
 			
 			if(answeredCorrectly)
 			{
-				communicator.WritePoints(++points);
+				++pointsCounter.Points;
 			}
 		}
 
