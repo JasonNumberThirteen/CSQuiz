@@ -1,6 +1,6 @@
 namespace Quiz
 {
-	internal delegate void PointsCounterOnIncreaseDelegate(int points);
+	internal delegate void PointsCounterOnIncreaseDelegate(int gainedPoints, int points);
 	
 	class PointsCounter
 	{
@@ -13,11 +13,13 @@ namespace Quiz
 			}
 			set
 			{
+				int previous = points;
+				
 				points = value;
 
 				if(value > 0 && OnIncrease != null)
 				{
-					OnIncrease(points);
+					OnIncrease(points - previous, points);
 				}
 			}
 		}

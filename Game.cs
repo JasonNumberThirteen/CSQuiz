@@ -29,7 +29,7 @@ namespace Quiz
 
 		private void AddEventToPointsCounter()
 		{
-			pointsCounter.OnIncrease += communicator.WritePoints;
+			pointsCounter.OnIncrease += communicator.WriteGainedPoints;
 		}
 
 		private void AskQuestions()

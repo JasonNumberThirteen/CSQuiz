@@ -17,7 +17,7 @@ namespace Quiz
 		public void WriteEnd() => Console.WriteLine(Constants.GAME_END_MESSAGE);
 		public void WriteTotalPoints(int gained, int? max) => Console.WriteLine("POINTS: {0}/{1}", gained, max);
 		public void WriteResult(bool answeredCorrectly) => Console.WriteLine(answeredCorrectly ? Constants.CORRECT_ANSWER_MESSAGE : Constants.WRONG_ANSWER_MESSAGE);
-		public void WritePoints(int points) => Console.WriteLine("{0}\nYou have {1} {2}!", Constants.GAINED_POINT_MESSAGE, points, points > 1 ? "points" : "point");
+		public void WriteGainedPoints(int gainedPoints, int points) => Console.WriteLine("You have gained {0} {1}!\nYou have {2} {3}!", gainedPoints, gainedPoints > 1 ? "points" : "point", points, points > 1 ? "points" : "point");
 		private void WriteAnswer(int number, string answer) => Console.WriteLine("{0}) {1}", number, answer);
 	}
 }
