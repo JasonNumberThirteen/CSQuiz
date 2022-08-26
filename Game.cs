@@ -6,13 +6,14 @@ namespace Quiz
 	class Game
 	{
 		private List<QuestionData>? questionsData;
+		private int points = 0;
 		
 		public Game()
 		{
 			Console.WriteLine("QUIZ");
 			GetQuestionsData();
 			AskQuestions();
-			Console.WriteLine("This is the end!");
+			Console.WriteLine("This is the end!\nPOINTS: {0}/{1}", points, questionsData?.Count);
 		}
 
 		private void GetQuestionsData()
@@ -30,7 +31,7 @@ namespace Quiz
 				
 				Console.WriteLine("QUESTION {0}", i + 1);
 				WriteQuestionWithAnswers(qd);
-				WriteResult(qd);
+				CheckAnswer(qd);
 				Console.WriteLine();
 			}
 		}
@@ -49,7 +50,21 @@ namespace Quiz
 			}
 		}
 
-		private void WriteResult(QuestionData qd) => Console.WriteLine(AnsweredCorrectly(qd) ? "Correct!" : "Wrong!");
+		private void CheckAnswer(QuestionData qd)
+		{
+			bool answeredCorrectly = AnsweredCorrectly(qd);
+
+			WriteResult(answeredCorrectly);
+			
+			if(answeredCorrectly)
+			{
+				WritePoints();
+			}
+		}
+
+		private void WriteResult(bool answeredCorrectly) => Console.WriteLine(answeredCorrectly ? "Correct!" : "Wrong!");
+		private void WritePoints() => Console.WriteLine("You have gained a point!\nYou have {0} {1}!", ++points, points > 1 ? "points" : "point");
+
 		private bool AnsweredCorrectly(QuestionData qd) => NumberFromInput(1, qd.Answers!.Length) == qd.CorrectAnswer;
 
 		private int NumberFromInput(int min, int max)
