@@ -17,5 +17,17 @@ namespace Quiz
 
 			Data = JsonSerializer.Deserialize<List<QuestionData>>(data);
 		}
+
+		public int PointsFromAllQuestions()
+		{
+			int count = 0;
+
+			foreach (QuestionData qd in Data!)
+			{
+				count += qd.Points;
+			}
+
+			return count;
+		}
 	}
 }

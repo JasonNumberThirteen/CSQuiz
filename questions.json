@@ -7,7 +7,8 @@
 			"2025",
 			"1806"
 		],
-		"CorrectAnswer": 3
+		"CorrectAnswer": 3,
+		"Points": 1
 	},
 	{
 		"Question": "What is the value of natural logarithm (approximately)?",
@@ -17,7 +18,8 @@
 			"0.577",
 			"1.732"
 		],
-		"CorrectAnswer": 1
+		"CorrectAnswer": 1,
+		"Points": 2
 	},
 	{
 		"Question": "How many hosts has ARPANET connected to each other in 1969?",
@@ -28,6 +30,7 @@
 			"1",
 			"4"
 		],
-		"CorrectAnswer": 5
+		"CorrectAnswer": 5,
+		"Points": 1
 	}
 ]

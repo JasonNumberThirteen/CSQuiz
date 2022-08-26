@@ -13,7 +13,7 @@ namespace Quiz
 			AddEventToPointsCounter();
 			AskQuestions();
 			communicator.WriteEnd();
-			communicator.WriteTotalPoints(pointsCounter.Points, questions.Data?.Count);
+			communicator.WriteTotalPoints(pointsCounter.Points, questions.PointsFromAllQuestions());
 		}
 
 		private void AddEventToPointsCounter()
@@ -43,7 +43,7 @@ namespace Quiz
 			
 			if(answeredCorrectly)
 			{
-				++pointsCounter.Points;
+				pointsCounter.Points += qd.Points;
 			}
 		}
 
