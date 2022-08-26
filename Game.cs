@@ -1,11 +1,10 @@
 using System;
-using System.Text.Json;
 
 namespace Quiz
 {
 	class Game
 	{
-		private List<QuestionData>? questionsData;
+		private Questions questions = new Questions();
 		private Communicator communicator = new Communicator();
 		private Input input = new Input();
 		private PointsCounter pointsCounter = new PointsCounter();
@@ -13,18 +12,10 @@ namespace Quiz
 		public Game()
 		{
 			communicator.WriteGameTitle();
-			GetQuestionsData();
 			AddEventToPointsCounter();
 			AskQuestions();
 			communicator.WriteEnd();
-			communicator.WriteTotalPoints(pointsCounter.Points, questionsData?.Count);
-		}
-
-		private void GetQuestionsData()
-		{
-			string data = File.ReadAllText(Constants.QUESTIONS_FILENAME);
-
-			questionsData = JsonSerializer.Deserialize<List<QuestionData>>(data);
+			communicator.WriteTotalPoints(pointsCounter.Points, questions.Data?.Count);
 		}
 
 		private void AddEventToPointsCounter()
@@ -34,9 +25,9 @@ namespace Quiz
 
 		private void AskQuestions()
 		{
-			for (int i = 0; i < questionsData!.Count; ++i)
+			for (int i = 0; i < questions.Data!.Count; ++i)
 			{
-				QuestionData qd = questionsData[i];
+				QuestionData qd = questions.Data[i];
 				
 				communicator.WriteQuestionHeader(i + 1);
 				communicator.WriteQuestion(qd);
