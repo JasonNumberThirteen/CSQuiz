@@ -13,7 +13,7 @@ namespace Quiz
 			Console.WriteLine("QUIZ");
 			GetQuestionsData();
 			AskQuestions();
-			Console.WriteLine("This is the end!\nPOINTS: {0}/{1}", points, questionsData?.Count);
+			WriteEnd();
 		}
 
 		private void GetQuestionsData()
@@ -81,6 +81,11 @@ namespace Quiz
 			while (!int.TryParse(s, out number) || number < min || number > max);
 
 			return number;
+		}
+
+		private void WriteEnd()
+		{
+			Console.WriteLine("This is the end!\nPOINTS: {0}/{1}", points, questionsData?.Count);
 		}
 	}
 }
