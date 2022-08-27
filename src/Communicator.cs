@@ -14,6 +14,7 @@ namespace Quiz
 			}
 		}
 
+		public void WriteRequestToTypeNumber(int min, int max) => Console.Write("{0} {1} {2} {3} {4}: ", Constants.TYPE_NUMBER_STRING, Constants.FROM_STRING, min, Constants.TO_STRING, max);
 		public void WriteEnd() => Console.WriteLine(Constants.GAME_END_MESSAGE);
 		public void WriteTotalPoints(int gained, int? max) => Console.WriteLine("{0}: {1}/{2}", Constants.POINTS_STRING.ToUpper(), gained, max);
 		public void WriteResult(bool answeredCorrectly) => Console.WriteLine(answeredCorrectly ? Constants.CORRECT_ANSWER_MESSAGE : Constants.WRONG_ANSWER_MESSAGE);

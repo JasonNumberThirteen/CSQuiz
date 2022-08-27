@@ -2,7 +2,7 @@ namespace Quiz
 {
 	class Input
 	{
-		public int NumberFromInput(int min, int max)
+		public int NumberFromInput(Communicator communicator, int min, int max)
 		{
 			string? s;
 			int number;
@@ -14,7 +14,7 @@ namespace Quiz
 
 			do
 			{
-				Console.Write("{0} {1} {2} {3} {4}: ", Constants.TYPE_NUMBER_STRING, Constants.FROM_STRING, min, Constants.TO_STRING, max);
+				communicator.WriteRequestToTypeNumber(min, max);
 				
 				s = Console.ReadLine();
 			}

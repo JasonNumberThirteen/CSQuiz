@@ -47,6 +47,6 @@ namespace Quiz
 			}
 		}
 
-		private bool AnsweredCorrectly(QuestionData qd) => input.NumberFromInput(1, qd.Answers!.Length) == qd.CorrectAnswer;
+		private bool AnsweredCorrectly(QuestionData qd) => input.NumberFromInput(communicator, 1, qd.Answers!.Length) == qd.CorrectAnswer;
 	}
 }
