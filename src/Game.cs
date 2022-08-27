@@ -2,7 +2,7 @@ namespace Quiz
 {
 	class Game
 	{
-		private Questions questions = new Questions();
+		private Questions questions = new Questions(Constants.QUESTIONS_FILENAME);
 		private Communicator communicator = new Communicator();
 		private Input input = new Input();
 		private PointsCounter pointsCounter = new PointsCounter();

@@ -6,14 +6,14 @@ namespace Quiz
 	{
 		public List<QuestionData>? Data {get; private set;}
 
-		public Questions()
+		public Questions(string filename)
 		{
-			GetData();
+			GetData(filename);
 		}
 
-		public void GetData()
+		public void GetData(string filename)
 		{
-			string data = File.ReadAllText(Constants.QUESTIONS_FILENAME);
+			string data = File.ReadAllText(filename);
 
 			Data = JsonSerializer.Deserialize<List<QuestionData>>(data);
 		}
