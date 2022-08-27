@@ -12,14 +12,26 @@ namespace Quiz
 			ValidateData();
 		}
 
-		public void GetData(string filename)
+		public int PointsFromAllQuestions()
+		{
+			int count = 0;
+
+			foreach (QuestionData qd in Data!)
+			{
+				count += qd.Points;
+			}
+
+			return count;
+		}
+
+		private void GetData(string filename)
 		{
 			string data = File.ReadAllText(filename);
 
 			Data = JsonSerializer.Deserialize<List<QuestionData>>(data);
 		}
 
-		public void ValidateData()
+		private void ValidateData()
 		{
 			foreach (QuestionData qd in Data!)
 			{
@@ -36,18 +48,6 @@ namespace Quiz
 					throw new Exception("Incorrect questions data! The amount of points is negative!");
 				}
 			}
-		}
-
-		public int PointsFromAllQuestions()
-		{
-			int count = 0;
-
-			foreach (QuestionData qd in Data!)
-			{
-				count += qd.Points;
-			}
-
-			return count;
 		}
 	}
 }
