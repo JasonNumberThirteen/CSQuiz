@@ -17,6 +17,10 @@ namespace Quiz
 			questionsReader = new JSONQuestionsReader<T>(questionsFilename);
 
 			AddMethodsToOnEnd();
+		}
+
+		public void Start()
+		{
 			communicator.WriteGameTitle();
 			AskQuestions();
 			CallOnEnd();

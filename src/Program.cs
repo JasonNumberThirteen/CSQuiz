@@ -4,7 +4,9 @@
 	{
 		static void Main(string[] args)
 		{
-			new Game<QuestionData>(Constants.QUESTIONS_FILENAME);
+			Game<QuestionData> game = new Game<QuestionData>(Constants.QUESTIONS_FILENAME);
+
+			game.Start();
 		}
 	}
 }
