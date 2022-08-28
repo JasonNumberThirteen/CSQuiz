@@ -9,12 +9,13 @@ namespace Quiz
 		public event GameOnEndDelegate OnEnd = delegate {};
 		
 		private readonly QuestionsReader<T> questionsReader;
-		private readonly Communicator communicator = new Communicator();
+		private readonly Communicator communicator;
 		private readonly Input input = new Input();
 		
-		public Game(QuestionsReader<T> questionsReader)
+		public Game(QuestionsReader<T> questionsReader, Communicator communicator)
 		{
 			this.questionsReader = questionsReader;
+			this.communicator = communicator;
 
 			AddMethodsToOnEnd();
 		}
