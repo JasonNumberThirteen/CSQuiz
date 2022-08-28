@@ -4,6 +4,9 @@ namespace Quiz
 	{
 		internal delegate void GameOnCorrectAnswerDelegate(T t, bool answeredCorrectly);
 		public event GameOnCorrectAnswerDelegate OnCorrectAnswer = delegate {};
+
+		internal delegate void GameOnEndDelegate();
+		public event GameOnEndDelegate OnEnd = delegate {};
 		
 		private readonly QuestionsReader<T> questionsReader;
 		private readonly Communicator communicator = new Communicator();
