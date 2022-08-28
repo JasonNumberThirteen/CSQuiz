@@ -2,23 +2,18 @@ namespace Quiz
 {
 	class Input
 	{
-		public int NumberFromInput(Communicator communicator, int min, int max)
+		public int NumberFromInput(Communicator communicator, NumbersRange nr)
 		{
 			string? s;
 			int number;
 
-			if(min > max)
-			{
-				throw new Exception(Constants.INCORRECT_RANGE_OF_NUMBERS_EXCEPTION_MESSAGE);
-			}
-
 			do
 			{
-				communicator.WriteRequestToTypeNumber(min, max);
+				communicator.WriteRequestToTypeNumber(nr.min, nr.max);
 				
 				s = Console.ReadLine();
 			}
-			while (!int.TryParse(s, out number) || number < min || number > max);
+			while (!int.TryParse(s, out number) || number < nr.min || number > nr.max);
 
 			return number;
 		}
