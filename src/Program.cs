@@ -5,8 +5,9 @@
 		static void Main(string[] args)
 		{
 			Communicator communicator = new Communicator();
-			Game<QuestionDataWithPoints> game = new Game<QuestionDataWithPoints>(new JSONQuestionsReader<QuestionDataWithPoints>(Constants.QUESTIONS_FILENAME), communicator);
-			PointsCounter pointsCounter = new PointsCounter();
+			JSONQuestionsReader<QuestionDataWithPoints> questionsReader = new JSONQuestionsReader<QuestionDataWithPoints>(Constants.QUESTIONS_FILENAME);
+			Game<QuestionDataWithPoints> game = new Game<QuestionDataWithPoints>(questionsReader, communicator);
+			PointsCounter pointsCounter = new PointsCounter(questionsReader);
 
 			game.Start();
 		}

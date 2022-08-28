@@ -23,7 +23,20 @@ namespace Quiz
 				}
 			}
 		}
+		public int MaxPoints
+		{
+			get
+			{
+				return maxPoints;
+			}
+		}
 
 		private int points = 0;
+		private int maxPoints;
+
+		public PointsCounter(QuestionsReader<QuestionDataWithPoints> questionsReader)
+		{
+			maxPoints = questionsReader.Data!.Sum<QuestionDataWithPoints>(t => t.Points);
+		}
 	}
 }
