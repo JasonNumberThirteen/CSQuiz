@@ -15,10 +15,16 @@ namespace Quiz
 		public Game(string questionsFilename)
 		{
 			questionsReader = new JSONQuestionsReader<T>(questionsFilename);
+
+			OnEnd += communicator.WriteEnd;
 			
 			communicator.WriteGameTitle();
 			AskQuestions();
-			communicator.WriteEnd();
+			
+			if(OnEnd != null)
+			{
+				OnEnd();
+			}
 		}
 
 		private void AskQuestions()
