@@ -2,14 +2,14 @@ using System.Text.Json;
 
 namespace Quiz
 {
-	class Questions<T> where T : QuestionData
+	class Questions<T> where T : IValidatable
 	{
 		public List<T>? Data {get; private set;}
 
 		public Questions(string filename)
 		{
 			GetData(filename);
-			Data!.ForEach(d => d.ValidateData());
+			Data!.ForEach(d => d.Validate());
 		}
 
 		private void GetData(string filename)

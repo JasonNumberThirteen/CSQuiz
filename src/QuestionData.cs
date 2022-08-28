@@ -1,13 +1,13 @@
 namespace Quiz
 {
-	class QuestionData
+	class QuestionData : IValidatable
 	{
 		public string? Question {get; set;}
 		public string[]? Answers {get; set;}
 		public int CorrectAnswer {get; set;}
 		public int Points {get; set;}
 
-		public void ValidateData()
+		public void Validate()
 		{
 			if(CorrectAnswer > Answers!.Length)
 			{
