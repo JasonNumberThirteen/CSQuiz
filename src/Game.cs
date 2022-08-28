@@ -8,22 +8,14 @@ namespace Quiz
 		private readonly QuestionsReader<T> questionsReader;
 		private readonly Communicator communicator = new Communicator();
 		private readonly Input input = new Input();
-		private readonly PointsCounter pointsCounter = new PointsCounter();
 		
 		public Game(string questionsFilename)
 		{
 			questionsReader = new JSONQuestionsReader<T>(questionsFilename);
 			
 			communicator.WriteGameTitle();
-			AddEventToPointsCounter();
 			AskQuestions();
 			communicator.WriteEnd();
-			communicator.WriteTotalPoints(pointsCounter.Points, questionsReader.Data!.Sum<T>(t => t.Points));
-		}
-
-		private void AddEventToPointsCounter()
-		{
-			pointsCounter.OnIncrease += communicator.WriteGainedPoints;
 		}
 
 		private void AskQuestions()
