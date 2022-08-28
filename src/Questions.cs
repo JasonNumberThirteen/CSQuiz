@@ -9,7 +9,7 @@ namespace Quiz
 		public Questions(string filename)
 		{
 			GetData(filename);
-			ValidateData();
+			Data!.ForEach(d => d.ValidateData());
 		}
 
 		public int PointsFromAllQuestions()
@@ -29,14 +29,6 @@ namespace Quiz
 			string data = File.ReadAllText(filename);
 
 			Data = JsonSerializer.Deserialize<List<QuestionData>>(data);
-		}
-
-		private void ValidateData()
-		{
-			foreach (QuestionData qd in Data!)
-			{
-				qd.ValidateData();
-			}
 		}
 	}
 }
