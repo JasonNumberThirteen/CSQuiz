@@ -7,7 +7,7 @@ namespace Quiz
 		public int CorrectAnswer {get; set;}
 		public int Points {get; set;}
 
-		public void Validate()
+		public virtual void Validate()
 		{
 			if(CorrectAnswer > Answers!.Length)
 			{
