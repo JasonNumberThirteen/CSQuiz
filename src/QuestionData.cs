@@ -1,10 +1,7 @@
 namespace Quiz
 {
-	internal delegate void QuestionDataOnCorrectAnswerDelegate();
-	
 	class QuestionData : IValidatable
 	{
-		public event QuestionDataOnCorrectAnswerDelegate OnCorrectAnswer = delegate {};
 		public string? Question {get; set;}
 		public string[]? Answers {get; set;}
 		public int CorrectAnswer {get; set;}
