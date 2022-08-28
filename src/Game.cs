@@ -1,8 +1,8 @@
 namespace Quiz
 {
-	class Game
+	class Game<T> where T : QuestionData
 	{
-		private Questions<QuestionData> questions = new Questions<QuestionData>(Constants.QUESTIONS_FILENAME);
+		private Questions<T> questions = new Questions<T>(Constants.QUESTIONS_FILENAME);
 		private Communicator communicator = new Communicator();
 		private Input input = new Input();
 		private PointsCounter pointsCounter = new PointsCounter();
@@ -13,7 +13,7 @@ namespace Quiz
 			AddEventToPointsCounter();
 			AskQuestions();
 			communicator.WriteEnd();
-			communicator.WriteTotalPoints(pointsCounter.Points, questions.Data!.Sum<QuestionData>(i => i.Points));
+			communicator.WriteTotalPoints(pointsCounter.Points, questions.Data!.Sum<T>(t => t.Points));
 		}
 
 		private void AddEventToPointsCounter()
@@ -25,28 +25,28 @@ namespace Quiz
 		{
 			for (int i = 0; i < questions.Data!.Count; ++i)
 			{
-				QuestionData qd = questions.Data[i];
+				T t = questions.Data[i];
 				
 				communicator.WriteQuestionHeader(i + 1);
-				communicator.WriteQuestion(qd);
-				communicator.WriteAnswers(qd);
-				CheckAnswer(qd);
+				communicator.WriteQuestion(t);
+				communicator.WriteAnswers(t);
+				CheckAnswer(t);
 				Console.WriteLine();
 			}
 		}
 
-		private void CheckAnswer(QuestionData qd)
+		private void CheckAnswer(T t)
 		{
-			bool answeredCorrectly = AnsweredCorrectly(qd);
+			bool answeredCorrectly = AnsweredCorrectly(t);
 
 			communicator.WriteResult(answeredCorrectly);
 			
 			if(answeredCorrectly)
 			{
-				pointsCounter.Points += qd.Points;
+				pointsCounter.Points += t.Points;
 			}
 		}
 
-		private bool AnsweredCorrectly(QuestionData qd) => input.NumberFromInput(communicator, 1, qd.Answers!.Length) == qd.CorrectAnswer;
+		private bool AnsweredCorrectly(T t) => input.NumberFromInput(communicator, 1, t.Answers!.Length) == t.CorrectAnswer;
 	}
 }
