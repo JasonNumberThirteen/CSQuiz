@@ -7,6 +7,7 @@ namespace Quiz
 		public QuestionsReader(string filename)
 		{
 			GetData(filename);
+			Data!.ForEach(d => d.Validate());
 		}
 
 		public abstract void GetData(string filename);
