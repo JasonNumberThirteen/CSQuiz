@@ -2,10 +2,10 @@ namespace Quiz
 {
 	class Game<T> where T : QuestionData
 	{
-		private Questions<T> questions;
-		private Communicator communicator = new Communicator();
-		private Input input = new Input();
-		private PointsCounter pointsCounter = new PointsCounter();
+		private readonly Questions<T> questions;
+		private readonly Communicator communicator = new Communicator();
+		private readonly Input input = new Input();
+		private readonly PointsCounter pointsCounter = new PointsCounter();
 		
 		public Game(string questionsFilename)
 		{
