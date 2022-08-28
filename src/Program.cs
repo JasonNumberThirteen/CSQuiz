@@ -4,7 +4,9 @@
 	{
 		static void Main(string[] args)
 		{
-			Game<QuestionData> game = new Game<QuestionData>(Constants.QUESTIONS_FILENAME);
+			Communicator communicator = new Communicator();
+			Game<QuestionDataWithPoints> game = new Game<QuestionDataWithPoints>(Constants.QUESTIONS_FILENAME);
+			PointsCounter pointsCounter = new PointsCounter();
 
 			game.Start();
 		}
