@@ -2,7 +2,7 @@ namespace Quiz
 {
 	class Game<T> where T : QuestionData
 	{
-		internal delegate void GameOnCorrectAnswerDelegate(T t);
+		internal delegate void GameOnCorrectAnswerDelegate(T t, bool answeredCorrectly);
 		public event GameOnCorrectAnswerDelegate OnCorrectAnswer = delegate {};
 		
 		private readonly QuestionsReader<T> questionsReader;
@@ -43,12 +43,10 @@ namespace Quiz
 		private void CheckAnswer(T t)
 		{
 			bool answeredCorrectly = AnsweredCorrectly(t);
-
-			communicator.WriteResult(answeredCorrectly);
 			
 			if(answeredCorrectly && OnCorrectAnswer != null)
 			{
-				OnCorrectAnswer(t);
+				OnCorrectAnswer(t, answeredCorrectly);
 			}
 		}
 
