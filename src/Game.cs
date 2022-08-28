@@ -12,9 +12,9 @@ namespace Quiz
 		private readonly Communicator communicator = new Communicator();
 		private readonly Input input = new Input();
 		
-		public Game(string questionsFilename)
+		public Game(QuestionsReader<T> questionsReader)
 		{
-			questionsReader = new JSONQuestionsReader<T>(questionsFilename);
+			this.questionsReader = questionsReader;
 
 			AddMethodsToOnEnd();
 		}
