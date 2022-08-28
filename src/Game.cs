@@ -16,15 +16,15 @@ namespace Quiz
 		{
 			questionsReader = new JSONQuestionsReader<T>(questionsFilename);
 
-			OnEnd += communicator.WriteEnd;
-			
+			AddMethodsToOnEnd();
 			communicator.WriteGameTitle();
 			AskQuestions();
-			
-			if(OnEnd != null)
-			{
-				OnEnd();
-			}
+			CallOnEnd();
+		}
+
+		private void AddMethodsToOnEnd()
+		{
+			OnEnd += communicator.WriteEnd;
 		}
 
 		private void AskQuestions()
@@ -50,6 +50,14 @@ namespace Quiz
 			if(answeredCorrectly && OnCorrectAnswer != null)
 			{
 				OnCorrectAnswer(t, answeredCorrectly);
+			}
+		}
+
+		private void CallOnEnd()
+		{
+			if(OnEnd != null)
+			{
+				OnEnd();
 			}
 		}
 
