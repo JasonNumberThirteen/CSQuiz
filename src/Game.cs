@@ -2,13 +2,15 @@ namespace Quiz
 {
 	class Game<T> where T : QuestionData
 	{
-		private Questions<T> questions = new Questions<T>(Constants.QUESTIONS_FILENAME);
+		private Questions<T> questions;
 		private Communicator communicator = new Communicator();
 		private Input input = new Input();
 		private PointsCounter pointsCounter = new PointsCounter();
 		
-		public Game()
+		public Game(string questionsFilename)
 		{
+			questions = new Questions<T>(questionsFilename);
+			
 			communicator.WriteGameTitle();
 			AddEventToPointsCounter();
 			AskQuestions();

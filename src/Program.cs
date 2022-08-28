@@ -4,7 +4,7 @@
 	{
 		static void Main(string[] args)
 		{
-			new Game<QuestionData>();
+			new Game<QuestionData>(Constants.QUESTIONS_FILENAME);
 		}
 	}
 }
