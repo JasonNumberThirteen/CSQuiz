@@ -10,7 +10,7 @@
 
 ## General information
 - This is a simple console application of "Quiz" game. It was written in pure C#.
-- The project presents my programming skills how I do write code taking care of several optimisations.
+- The project presents my programming skills how I do write code taking care of several optimisations. I did my best to make code follow the SOLID rules.
 - The game asks questions to player and he must choose the correct answer from several options. If he will choose correct answer, then he receives a point.
 - Win condition: none
 - Lose condition: none
