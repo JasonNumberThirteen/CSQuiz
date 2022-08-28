@@ -2,9 +2,9 @@ using System.Text.Json;
 
 namespace Quiz
 {
-	class Questions
+	class Questions<T> where T : QuestionData
 	{
-		public List<QuestionData>? Data {get; private set;}
+		public List<T>? Data {get; private set;}
 
 		public Questions(string filename)
 		{
@@ -16,7 +16,7 @@ namespace Quiz
 		{
 			string data = File.ReadAllText(filename);
 
-			Data = JsonSerializer.Deserialize<List<QuestionData>>(data);
+			Data = JsonSerializer.Deserialize<List<T>>(data);
 		}
 	}
 }
