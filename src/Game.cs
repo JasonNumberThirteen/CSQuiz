@@ -46,9 +46,9 @@ namespace Quiz
 
 			communicator.WriteResult(answeredCorrectly);
 			
-			if(answeredCorrectly)
+			if(answeredCorrectly && OnCorrectAnswer != null)
 			{
-				pointsCounter.Points += t.Points;
+				OnCorrectAnswer(t);
 			}
 		}
 
