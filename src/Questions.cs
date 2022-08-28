@@ -35,18 +35,7 @@ namespace Quiz
 		{
 			foreach (QuestionData qd in Data!)
 			{
-				if(qd.CorrectAnswer > qd.Answers!.Length)
-				{
-					throw new Exception("Incorrect questions data! The number of correct answer is greater than amount of answers!");
-				}
-				else if(qd.CorrectAnswer < 1)
-				{
-					throw new Exception("Incorrect questions data! The number of correct answer is less than 1!");
-				}
-				else if(qd.Points < 0)
-				{
-					throw new Exception("Incorrect questions data! The amount of points is negative!");
-				}
+				qd.ValidateData();
 			}
 		}
 	}
