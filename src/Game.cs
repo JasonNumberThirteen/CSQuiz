@@ -2,6 +2,9 @@ namespace Quiz
 {
 	class Game<T> where T : QuestionData
 	{
+		internal delegate void GameOnCorrectAnswerDelegate(T t);
+		public event GameOnCorrectAnswerDelegate OnCorrectAnswer = delegate {};
+		
 		private readonly QuestionsReader<T> questionsReader;
 		private readonly Communicator communicator = new Communicator();
 		private readonly Input input = new Input();
