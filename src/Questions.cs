@@ -12,18 +12,6 @@ namespace Quiz
 			Data!.ForEach(d => d.ValidateData());
 		}
 
-		public int PointsFromAllQuestions()
-		{
-			int count = 0;
-
-			foreach (QuestionData qd in Data!)
-			{
-				count += qd.Points;
-			}
-
-			return count;
-		}
-
 		private void GetData(string filename)
 		{
 			string data = File.ReadAllText(filename);

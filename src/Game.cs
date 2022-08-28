@@ -13,7 +13,7 @@ namespace Quiz
 			AddEventToPointsCounter();
 			AskQuestions();
 			communicator.WriteEnd();
-			communicator.WriteTotalPoints(pointsCounter.Points, questions.PointsFromAllQuestions());
+			communicator.WriteTotalPoints(pointsCounter.Points, PointsFromAllQuestions());
 		}
 
 		private void AddEventToPointsCounter()
@@ -45,6 +45,18 @@ namespace Quiz
 			{
 				pointsCounter.Points += qd.Points;
 			}
+		}
+
+		private int PointsFromAllQuestions()
+		{
+			int count = 0;
+
+			foreach (QuestionData qd in questions.Data!)
+			{
+				count += qd.Points;
+			}
+
+			return count;
 		}
 
 		private bool AnsweredCorrectly(QuestionData qd) => input.NumberFromInput(communicator, 1, qd.Answers!.Length) == qd.CorrectAnswer;
