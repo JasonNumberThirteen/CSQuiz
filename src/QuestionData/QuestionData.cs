@@ -16,6 +16,14 @@ namespace Quiz
 			{
 				throw new Exception("Incorrect questions data! The number of correct answer is less than 1!");
 			}
+			else if(string.IsNullOrEmpty(Question) || string.IsNullOrWhiteSpace(Question))
+			{
+				throw new Exception("Incorrect questions data! The question is empty!");
+			}
+			else if(Answers!.Any<string>(a => string.IsNullOrEmpty(a) || string.IsNullOrWhiteSpace(a)))
+			{
+				throw new Exception("Incorrect questions data! The answer is empty!");
+			}
 		}
 	}
 }
