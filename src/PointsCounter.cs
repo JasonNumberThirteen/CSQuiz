@@ -36,7 +36,7 @@ namespace Quiz
 
 		public PointsCounter(QuestionsReader<QuestionDataWithPoints> questionsReader)
 		{
-			maxPoints = questionsReader.Data!.Sum<QuestionDataWithPoints>(t => t.Points);
+			maxPoints = questionsReader.Data!.Sum<QuestionDataWithPoints>(d => d.Points);
 		}
 	}
 }
