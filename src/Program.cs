@@ -16,6 +16,7 @@
 				pointsCounter.Points += qdwp.Points;
 			};
 
+			game.OnEnd += communicator.WriteEnd;
 			game.OnEnd += communicator.WriteTotalPoints;
 
 			game.Start();

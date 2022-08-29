@@ -16,8 +16,6 @@ namespace Quiz
 		{
 			this.questionsReader = questionsReader;
 			this.communicator = communicator;
-
-			AddMethodsToOnEnd();
 		}
 
 		public void Start()
@@ -25,11 +23,6 @@ namespace Quiz
 			communicator.WriteGameTitle();
 			AskQuestions();
 			CallOnEnd();
-		}
-
-		private void AddMethodsToOnEnd()
-		{
-			OnEnd += communicator.WriteEnd;
 		}
 
 		private void AskQuestions()
