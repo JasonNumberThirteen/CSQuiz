@@ -10,6 +10,6 @@ namespace Quiz
 			Data!.ForEach(d => d.Validate());
 		}
 
-		public abstract void GetData(string filename);
+		protected abstract void GetData(string filename);
 	}
 }

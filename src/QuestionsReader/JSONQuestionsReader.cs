@@ -9,7 +9,7 @@ namespace Quiz
 
 		}
 
-		public override void GetData(string filename)
+		protected override void GetData(string filename)
 		{
 			string data = File.ReadAllText(filename);
 
