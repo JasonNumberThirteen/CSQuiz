@@ -13,6 +13,7 @@
 
 			pointsCounter.OnIncrease += communicator.WriteGainedPoints;
 
+			game.OnCorrectAnswer += communicator.WriteResult<QuestionDataWithPoints>;
 			game.OnCorrectAnswer += delegate(QuestionDataWithPoints qdwp, bool answeredCorrectly)
 			{
 				pointsCounter.Points += qdwp.Points;

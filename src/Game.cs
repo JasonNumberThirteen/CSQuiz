@@ -45,8 +45,6 @@ namespace Quiz
 		private void CheckAnswer(T t)
 		{
 			bool answeredCorrectly = AnsweredCorrectly(t);
-
-			communicator.WriteResult(answeredCorrectly);
 			
 			if(answeredCorrectly && OnCorrectAnswer != null)
 			{
