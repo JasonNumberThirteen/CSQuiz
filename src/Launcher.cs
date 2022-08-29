@@ -23,6 +23,7 @@ namespace Quiz
 			ConfigureOnStartEvent();
 			ConfigureOnIncreaseEvent();
 			ConfigureOnCorrectAnswerEvent();
+			ConfigureOnWrongAnswerEvent();
 			ConfigureOnEndEvent();
 		}
 
@@ -43,6 +44,11 @@ namespace Quiz
 			{
 				pointsCounter.Points += qdwp.Points;
 			};
+		}
+
+		private void ConfigureOnWrongAnswerEvent()
+		{
+			game.OnWrongAnswer += communicator.WriteResult<QuestionDataWithPoints>;
 		}
 
 		private void ConfigureOnEndEvent()

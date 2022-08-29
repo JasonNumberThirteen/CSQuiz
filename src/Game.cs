@@ -8,6 +8,9 @@ namespace Quiz
 		internal delegate void GameOnCorrectAnswerDelegate(T t, bool answeredCorrectly);
 		public event GameOnCorrectAnswerDelegate OnCorrectAnswer = delegate {};
 
+		internal delegate void GameOnWrongAnswerDelegate(T t, bool answeredCorrectly);
+		public event GameOnWrongAnswerDelegate OnWrongAnswer = delegate {};
+
 		internal delegate void GameOnEndDelegate();
 		public event GameOnEndDelegate OnEnd = delegate {};
 		
@@ -46,9 +49,13 @@ namespace Quiz
 		{
 			bool answeredCorrectly = AnsweredCorrectly(t);
 			
-			if(answeredCorrectly && OnCorrectAnswer != null)
+			if(answeredCorrectly)
 			{
 				OnCorrectAnswer(t, answeredCorrectly);
+			}
+			else
+			{
+				OnWrongAnswer(t, answeredCorrectly);
 			}
 		}
 
