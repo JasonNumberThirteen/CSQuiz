@@ -15,7 +15,8 @@ namespace Quiz
 		}
 
 		public void WriteRequestToTypeNumber(int min, int max) => Console.Write("{0} {1} {2} {3} {4}: ", Constants.TYPE_NUMBER_STRING, Constants.FROM_STRING, min, Constants.TO_STRING, max);
-		public void WriteResult<T>(T t, bool answeredCorrectly) where T : QuestionData => Console.WriteLine(answeredCorrectly ? Constants.CORRECT_ANSWER_MESSAGE : Constants.WRONG_ANSWER_MESSAGE);
+		public void WriteCorrectAnswer<T>(T t, bool answeredCorrectly) where T : QuestionData => Console.WriteLine(Constants.CORRECT_ANSWER_MESSAGE);
+		public void WriteWrongAnswer<T>(T t, bool answeredCorrectly) where T : QuestionData => Console.WriteLine(Constants.WRONG_ANSWER_MESSAGE);
 		public void WriteEnd() => Console.WriteLine(Constants.GAME_END_MESSAGE);
 		
 		private void WriteAnswer(int number, string answer) => Console.WriteLine("{0}) {1}", number, answer);

@@ -34,7 +34,7 @@ namespace Quiz
 
 		private void ConfigureOnCorrectAnswerEvent()
 		{
-			game.OnCorrectAnswer += communicator.WriteResult<QuestionDataWithPoints>;
+			game.OnCorrectAnswer += communicator.WriteCorrectAnswer<QuestionDataWithPoints>;
 			game.OnCorrectAnswer += delegate(QuestionDataWithPoints qdwp, bool answeredCorrectly)
 			{
 				pointsCounter.Points += qdwp.Points;
@@ -43,7 +43,7 @@ namespace Quiz
 
 		private void ConfigureOnWrongAnswerEvent()
 		{
-			game.OnWrongAnswer += communicator.WriteResult<QuestionDataWithPoints>;
+			game.OnWrongAnswer += communicator.WriteWrongAnswer<QuestionDataWithPoints>;
 		}
 
 		private void ConfigureOnEndEvent()
