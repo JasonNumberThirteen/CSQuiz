@@ -6,7 +6,7 @@
 		{
 			JSONQuestionsReader<QuestionDataWithPoints> questionsReader = new JSONQuestionsReader<QuestionDataWithPoints>(Constants.QUESTIONS_FILENAME);
 			PointsCounter pointsCounter = new PointsCounter(questionsReader);
-			CommunicatorForPoints communicator = new CommunicatorForPoints(pointsCounter);
+			PointsCommunicator communicator = new PointsCommunicator(pointsCounter);
 			Game<QuestionDataWithPoints> game = new Game<QuestionDataWithPoints>(questionsReader, communicator);
 
 			pointsCounter.OnIncrease += communicator.WriteGainedPoints;
