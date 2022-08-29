@@ -9,6 +9,8 @@
 			PointsCommunicator communicator = new PointsCommunicator(pointsCounter);
 			Game<QuestionDataWithPoints> game = new Game<QuestionDataWithPoints>(questionsReader, communicator);
 
+			game.OnStart += communicator.WriteGameTitle;
+
 			pointsCounter.OnIncrease += communicator.WriteGainedPoints;
 
 			game.OnCorrectAnswer += delegate(QuestionDataWithPoints qdwp, bool answeredCorrectly)

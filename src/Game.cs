@@ -2,6 +2,9 @@ namespace Quiz
 {
 	class Game<T> where T : QuestionData
 	{
+		internal delegate void GameOnStartDelegate();
+		public event GameOnStartDelegate OnStart = delegate {};
+		
 		internal delegate void GameOnCorrectAnswerDelegate(T t, bool answeredCorrectly);
 		public event GameOnCorrectAnswerDelegate OnCorrectAnswer = delegate {};
 
@@ -20,9 +23,17 @@ namespace Quiz
 
 		public void Start()
 		{
-			communicator.WriteGameTitle();
+			CallOnStart();
 			AskQuestions();
 			CallOnEnd();
+		}
+
+		private void CallOnStart()
+		{
+			if(OnStart != null)
+			{
+				OnStart();
+			}
 		}
 
 		private void AskQuestions()
