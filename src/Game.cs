@@ -23,17 +23,9 @@ namespace Quiz
 
 		public void Start()
 		{
-			CallOnStart();
+			OnStart();
 			AskQuestions();
-			CallOnEnd();
-		}
-
-		private void CallOnStart()
-		{
-			if(OnStart != null)
-			{
-				OnStart();
-			}
+			OnEnd();
 		}
 
 		private void AskQuestions()
@@ -59,14 +51,6 @@ namespace Quiz
 			if(answeredCorrectly && OnCorrectAnswer != null)
 			{
 				OnCorrectAnswer(t, answeredCorrectly);
-			}
-		}
-
-		private void CallOnEnd()
-		{
-			if(OnEnd != null)
-			{
-				OnEnd();
 			}
 		}
 

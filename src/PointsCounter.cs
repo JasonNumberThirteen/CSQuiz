@@ -17,7 +17,7 @@ namespace Quiz
 				
 				points = value;
 
-				if(value > 0 && OnIncrease != null)
+				if(value > 0)
 				{
 					OnIncrease(points - previous, points);
 				}
