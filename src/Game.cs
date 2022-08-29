@@ -45,9 +45,7 @@ namespace Quiz
 
 		private void CheckAnswer(T t)
 		{
-			bool answeredCorrectly = AnsweredCorrectly(t);
-			
-			if(answeredCorrectly)
+			if(AnsweredCorrectly(t))
 			{
 				OnCorrectAnswer(t);
 			}
