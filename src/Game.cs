@@ -3,15 +3,13 @@ namespace Quiz
 	class Game<T> where T : QuestionData
 	{
 		internal delegate void GameOnStartDelegate();
-		public event GameOnStartDelegate OnStart = delegate {};
-		
 		internal delegate void GameOnCorrectAnswerDelegate(T t, bool answeredCorrectly);
-		public event GameOnCorrectAnswerDelegate OnCorrectAnswer = delegate {};
-
 		internal delegate void GameOnWrongAnswerDelegate(T t, bool answeredCorrectly);
-		public event GameOnWrongAnswerDelegate OnWrongAnswer = delegate {};
-
 		internal delegate void GameOnEndDelegate();
+
+		public event GameOnStartDelegate OnStart = delegate {};
+		public event GameOnCorrectAnswerDelegate OnCorrectAnswer = delegate {};
+		public event GameOnWrongAnswerDelegate OnWrongAnswer = delegate {};
 		public event GameOnEndDelegate OnEnd = delegate {};
 		
 		private readonly QuestionsReader<T> questionsReader;
