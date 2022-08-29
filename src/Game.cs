@@ -3,8 +3,8 @@ namespace Quiz
 	class Game<T> where T : QuestionData
 	{
 		internal delegate void GameOnStartDelegate();
-		internal delegate void GameOnCorrectAnswerDelegate(T t, bool answeredCorrectly);
-		internal delegate void GameOnWrongAnswerDelegate(T t, bool answeredCorrectly);
+		internal delegate void GameOnCorrectAnswerDelegate(T t);
+		internal delegate void GameOnWrongAnswerDelegate(T t);
 		internal delegate void GameOnEndDelegate();
 
 		public event GameOnStartDelegate OnStart = delegate {};
@@ -49,11 +49,11 @@ namespace Quiz
 			
 			if(answeredCorrectly)
 			{
-				OnCorrectAnswer(t, answeredCorrectly);
+				OnCorrectAnswer(t);
 			}
 			else
 			{
-				OnWrongAnswer(t, answeredCorrectly);
+				OnWrongAnswer(t);
 			}
 		}
 
