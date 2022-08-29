@@ -21,20 +21,15 @@ namespace Quiz
 		private void ConfigureEvents()
 		{
 			ConfigureOnStartEvent();
-			ConfigureOnIncreaseEvent();
 			ConfigureOnCorrectAnswerEvent();
 			ConfigureOnWrongAnswerEvent();
 			ConfigureOnEndEvent();
+			ConfigureOnIncreaseEvent();
 		}
 
 		private void ConfigureOnStartEvent()
 		{
 			game.OnStart += communicator.WriteGameTitle;
-		}
-
-		private void ConfigureOnIncreaseEvent()
-		{
-			pointsCounter.OnIncrease += communicator.WriteGainedPoints;
 		}
 
 		private void ConfigureOnCorrectAnswerEvent()
@@ -55,6 +50,11 @@ namespace Quiz
 		{
 			game.OnEnd += communicator.WriteEnd;
 			game.OnEnd += communicator.WriteTotalPoints;
+		}
+
+		private void ConfigureOnIncreaseEvent()
+		{
+			pointsCounter.OnIncrease += communicator.WriteGainedPoints;
 		}
 	}
 }
