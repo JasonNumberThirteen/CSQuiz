@@ -5,7 +5,7 @@ namespace Quiz
 		private readonly JSONQuestionsReader<QuestionDataWithPoints> questionsReader;
 		private readonly PointsCounter pointsCounter;
 		private readonly PointsCommunicator communicator;
-		private readonly Input input;
+		private readonly KeyboardInput input;
 		private readonly Game<QuestionDataWithPoints> game;
 		
 		public Launcher()
@@ -13,7 +13,7 @@ namespace Quiz
 			questionsReader = new JSONQuestionsReader<QuestionDataWithPoints>(Constants.QUESTIONS_FILENAME);
 			pointsCounter = new PointsCounter(questionsReader);
 			communicator = new PointsCommunicator(pointsCounter);
-			input = new Input();
+			input = new KeyboardInput();
 			game = new Game<QuestionDataWithPoints>(questionsReader, communicator, input);
 
 			ConfigureEvents();

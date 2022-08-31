@@ -1,21 +1,7 @@
 namespace Quiz
 {
-	class Input
+	abstract class Input
 	{
-		public int NumberFromInput(Communicator communicator, NumbersRange nr)
-		{
-			string? s;
-			int number;
-
-			do
-			{
-				communicator.WriteRequestToTypeNumber(nr.min, nr.max);
-				
-				s = Console.ReadLine();
-			}
-			while (!int.TryParse(s, out number) || number < nr.min || number > nr.max);
-
-			return number;
-		}
+		public abstract int NumberFromInput(Communicator communicator, NumbersRange nr);
 	}
 }
