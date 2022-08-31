@@ -2,7 +2,7 @@ namespace Quiz
 {
 	internal delegate void PointsCounterOnIncreaseDelegate(int gainedPoints, int points);
 	
-	class PointsCounter
+	class PointsCounter<T> where T : QuestionDataWithPoints
 	{
 		public event PointsCounterOnIncreaseDelegate OnIncrease = delegate {};
 		public int Points
@@ -34,9 +34,9 @@ namespace Quiz
 		private int points = 0;
 		private int maxPoints;
 
-		public PointsCounter(QuestionsReader<QuestionDataWithPoints> questionsReader)
+		public PointsCounter(QuestionsReader<T> questionsReader)
 		{
-			maxPoints = questionsReader.Data!.Sum<QuestionDataWithPoints>(d => d.Points);
+			maxPoints = questionsReader.Data!.Sum<T>(d => d.Points);
 		}
 	}
 }

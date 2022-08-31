@@ -3,16 +3,16 @@ namespace Quiz
 	class Launcher
 	{
 		private readonly JSONQuestionsReader<QuestionDataWithPoints> questionsReader;
-		private readonly PointsCounter pointsCounter;
-		private readonly PointsCommunicator communicator;
+		private readonly PointsCounter<QuestionDataWithPoints> pointsCounter;
+		private readonly PointsCommunicator<QuestionDataWithPoints> communicator;
 		private readonly KeyboardInput input;
 		private readonly Game<QuestionDataWithPoints> game;
 		
 		public Launcher()
 		{
 			questionsReader = new JSONQuestionsReader<QuestionDataWithPoints>(Constants.QUESTIONS_FILENAME);
-			pointsCounter = new PointsCounter(questionsReader);
-			communicator = new PointsCommunicator(pointsCounter);
+			pointsCounter = new PointsCounter<QuestionDataWithPoints>(questionsReader);
+			communicator = new PointsCommunicator<QuestionDataWithPoints>(pointsCounter);
 			input = new KeyboardInput();
 			game = new Game<QuestionDataWithPoints>(questionsReader, communicator, input);
 

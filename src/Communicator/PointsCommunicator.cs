@@ -1,10 +1,10 @@
 namespace Quiz
 {
-	class PointsCommunicator : Communicator
+	class PointsCommunicator<T> : Communicator where T : QuestionDataWithPoints
 	{
-		private PointsCounter pointsCounter;
+		private PointsCounter<T> pointsCounter;
 		
-		public PointsCommunicator(PointsCounter pointsCounter)
+		public PointsCommunicator(PointsCounter<T> pointsCounter)
 		{
 			this.pointsCounter = pointsCounter;
 		}
