@@ -14,12 +14,13 @@ namespace Quiz
 		
 		private readonly QuestionsReader<T> questionsReader;
 		private readonly Communicator communicator;
-		private readonly Input input = new Input();
+		private readonly Input input;
 		
-		public Game(QuestionsReader<T> questionsReader, Communicator communicator)
+		public Game(QuestionsReader<T> questionsReader, Communicator communicator, Input input)
 		{
 			this.questionsReader = questionsReader;
 			this.communicator = communicator;
+			this.input = input;
 		}
 
 		public void Start()
