@@ -3,11 +3,13 @@ namespace Quiz
 	class Game<T> where T : QuestionData
 	{
 		internal delegate void GameOnStartDelegate();
+		internal delegate void GameOnQuestionAskDelegate(T t, int ordinalNumber);
 		internal delegate void GameOnCorrectAnswerDelegate(T t);
 		internal delegate void GameOnWrongAnswerDelegate(T t);
 		internal delegate void GameOnEndDelegate();
 
 		public event GameOnStartDelegate OnStart = delegate {};
+		public event GameOnQuestionAskDelegate OnQuestionAsk = delegate {};
 		public event GameOnCorrectAnswerDelegate OnCorrectAnswer = delegate {};
 		public event GameOnWrongAnswerDelegate OnWrongAnswer = delegate {};
 		public event GameOnEndDelegate OnEnd = delegate {};
@@ -26,8 +28,16 @@ namespace Quiz
 		public void Start()
 		{
 			OnStart();
+			ConfigureOnQuestionAskEvent();
 			AskQuestions();
 			OnEnd();
+		}
+
+		private void ConfigureOnQuestionAskEvent()
+		{
+			OnQuestionAsk += communicator.WriteQuestionHeader;
+			OnQuestionAsk += communicator.WriteQuestion;
+			OnQuestionAsk += communicator.WriteAnswers;
 		}
 
 		private void AskQuestions()
@@ -36,9 +46,7 @@ namespace Quiz
 			{
 				T t = questionsReader.Data[i];
 				
-				communicator.WriteQuestionHeader(i + 1);
-				communicator.WriteQuestion(t);
-				communicator.WriteAnswers(t);
+				OnQuestionAsk(t, i + 1);
 				CheckAnswer(t);
 				Console.WriteLine();
 			}

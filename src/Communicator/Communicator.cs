@@ -3,14 +3,14 @@ namespace Quiz
 	class Communicator
 	{
 		public void WriteGameTitle() => Console.WriteLine(Constants.GAME_TITLE);
-		public void WriteQuestionHeader(int number) => Console.WriteLine("{0} {1}", Constants.QUESTION_MESSAGE, number);
-		public void WriteQuestion(QuestionData qd) => Console.WriteLine(qd.Question);
+		public void WriteQuestionHeader<T>(T t, int ordinalNumber) where T : QuestionData => Console.WriteLine("{0} {1}", Constants.QUESTION_MESSAGE, ordinalNumber);
+		public void WriteQuestion<T>(T t, int ordinalNumber) where T : QuestionData => Console.WriteLine(t.Question);
 
-		public void WriteAnswers(QuestionData qd)
+		public void WriteAnswers<T>(T t, int ordinalNumber) where T : QuestionData
 		{
-			for (int a = 0; a < qd.Answers!.Length; ++a)
+			for (int a = 0; a < t.Answers!.Length; ++a)
 			{
-				WriteAnswer(a + 1, qd.Answers[a]);
+				WriteAnswer(a + 1, t.Answers[a]);
 			}
 		}
 
