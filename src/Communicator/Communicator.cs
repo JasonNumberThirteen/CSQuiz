@@ -1,6 +1,6 @@
 namespace Quiz
 {
-	abstract class Communicator
+	public abstract class Communicator
 	{
 		public abstract void WriteGameTitle();
 		public abstract void WriteQuestionHeader<T>(T t, int ordinalNumber) where T : QuestionData;

@@ -1,12 +1,12 @@
 namespace Quiz
 {
-	class Game<T> where T : QuestionData
+	public class Game<T> where T : QuestionData
 	{
-		internal delegate void GameOnStartDelegate();
-		internal delegate void GameOnQuestionAskDelegate(T t, int ordinalNumber);
-		internal delegate void GameOnCorrectAnswerDelegate(T t);
-		internal delegate void GameOnWrongAnswerDelegate(T t);
-		internal delegate void GameOnEndDelegate();
+		public delegate void GameOnStartDelegate();
+		public delegate void GameOnQuestionAskDelegate(T t, int ordinalNumber);
+		public delegate void GameOnCorrectAnswerDelegate(T t);
+		public delegate void GameOnWrongAnswerDelegate(T t);
+		public delegate void GameOnEndDelegate();
 
 		public event GameOnStartDelegate OnStart = delegate {};
 		public event GameOnQuestionAskDelegate OnQuestionAsk = delegate {};

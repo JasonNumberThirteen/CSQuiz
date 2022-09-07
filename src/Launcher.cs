@@ -1,6 +1,6 @@
 namespace Quiz
 {
-	class Launcher
+	public class Launcher
 	{
 		private readonly JSONQuestionsReader<QuestionDataWithPoints> questionsReader;
 		private readonly PointsCounter<QuestionDataWithPoints> pointsCounter;

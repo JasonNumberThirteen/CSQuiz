@@ -1,6 +1,6 @@
 namespace Quiz
 {
-	abstract class PointsCommunicator<T> : ConsoleCommunicator where T : QuestionDataWithPoints
+	public abstract class PointsCommunicator<T> : ConsoleCommunicator where T : QuestionDataWithPoints
 	{
 		protected PointsCounter<T> pointsCounter;
 

@@ -1,6 +1,6 @@
 namespace Quiz
 {
-	class KeyboardInput : Input
+	public class KeyboardInput : Input
 	{
 		public override int NumberFromInput(Communicator communicator, NumbersRange nr)
 		{

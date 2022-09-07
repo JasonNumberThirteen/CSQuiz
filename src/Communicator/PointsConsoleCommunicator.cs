@@ -1,6 +1,6 @@
 namespace Quiz
 {
-	class PointsConsoleCommunicator<T> : PointsCommunicator<T> where T : QuestionDataWithPoints
+	public class PointsConsoleCommunicator<T> : PointsCommunicator<T> where T : QuestionDataWithPoints
 	{
 		public PointsConsoleCommunicator(PointsCounter<T> pointsCounter) : base(pointsCounter)
 		{

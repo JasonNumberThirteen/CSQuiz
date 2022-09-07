@@ -1,6 +1,6 @@
 namespace Quiz
 {
-	class ConsoleCommunicator : Communicator
+	public class ConsoleCommunicator : Communicator
 	{
 		public override void WriteGameTitle() => Console.WriteLine(Constants.GAME_TITLE);
 		public override void WriteQuestionHeader<T>(T t, int ordinalNumber) => Console.WriteLine("{0} {1}", Constants.QUESTION_MESSAGE, ordinalNumber);

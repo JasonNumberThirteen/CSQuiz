@@ -1,6 +1,6 @@
 namespace Quiz
 {
-	readonly struct NumbersRange : IValidatable
+	public readonly struct NumbersRange : IValidatable
 	{
 		public readonly int min, max;
 

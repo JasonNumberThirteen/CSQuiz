@@ -1,8 +1,8 @@
 namespace Quiz
 {
-	internal delegate void PointsCounterOnIncreaseDelegate(int gainedPoints, int points);
+	public delegate void PointsCounterOnIncreaseDelegate(int gainedPoints, int points);
 	
-	class PointsCounter<T> where T : QuestionDataWithPoints
+	public class PointsCounter<T> where T : QuestionDataWithPoints
 	{
 		public event PointsCounterOnIncreaseDelegate OnIncrease = delegate {};
 		public int Points

@@ -1,6 +1,6 @@
 namespace Quiz
 {
-	interface IValidatable
+	public interface IValidatable
 	{
 		void Validate();
 	}

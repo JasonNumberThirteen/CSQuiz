@@ -1,6 +1,6 @@
 namespace Quiz
 {
-	class QuestionData : IValidatable
+	public class QuestionData : IValidatable
 	{
 		public string? Question {get; set;}
 		public string[]? Answers {get; set;}

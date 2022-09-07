@@ -1,6 +1,6 @@
 namespace Quiz
 {
-	class QuestionDataWithPoints : QuestionData
+	public class QuestionDataWithPoints : QuestionData
 	{
 		public int Points {get; set;}
 

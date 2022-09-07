@@ -2,7 +2,7 @@ using System.Text.Json;
 
 namespace Quiz
 {
-	class JSONQuestionsReader<T> : QuestionsReader<T> where T : IValidatable
+	public class JSONQuestionsReader<T> : QuestionsReader<T> where T : IValidatable
 	{
 		public JSONQuestionsReader(string filename) : base(filename)
 		{

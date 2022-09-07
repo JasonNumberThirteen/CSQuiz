@@ -1,6 +1,6 @@
 namespace Quiz
 {
-	static class Constants
+	public static class Constants
 	{
 		public static readonly string GAME_TITLE = "QUIZ";
 		public static readonly string QUESTIONS_FILENAME = "questions.json";

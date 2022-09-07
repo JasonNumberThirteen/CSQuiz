@@ -1,6 +1,6 @@
 namespace Quiz
 {
-	abstract class QuestionsReader<T> where T : IValidatable
+	public abstract class QuestionsReader<T> where T : IValidatable
 	{
 		public List<T>? Data {get; set;}
 		
