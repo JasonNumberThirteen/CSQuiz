@@ -27,16 +27,16 @@ namespace Quiz
 		{
 			get
 			{
-				return maxPoints;
+				return questionsReader.Data!.Sum<T>(d => d.Points);
 			}
 		}
 
 		private int points = 0;
-		private int maxPoints;
+		private QuestionsReader<T> questionsReader;
 
 		public PointsCounter(QuestionsReader<T> questionsReader)
 		{
-			maxPoints = questionsReader.Data!.Sum<T>(d => d.Points);
+			this.questionsReader = questionsReader;
 		}
 	}
 }
