@@ -1,10 +1,10 @@
 namespace Quiz
 {
-	class PointsCommunicator<T> : ConsoleCommunicator where T : QuestionDataWithPoints
+	class PointsConsoleCommunicator<T> : ConsoleCommunicator where T : QuestionDataWithPoints
 	{
 		private PointsCounter<T> pointsCounter;
 		
-		public PointsCommunicator(PointsCounter<T> pointsCounter)
+		public PointsConsoleCommunicator(PointsCounter<T> pointsCounter)
 		{
 			this.pointsCounter = pointsCounter;
 		}
