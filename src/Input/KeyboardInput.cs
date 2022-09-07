@@ -2,7 +2,7 @@ namespace Quiz
 {
 	class KeyboardInput : Input
 	{
-		public override int NumberFromInput(Communicator communicator, NumbersRange nr)
+		public override int NumberFromInput(ConsoleCommunicator communicator, NumbersRange nr)
 		{
 			string? s;
 			int number;
