@@ -15,10 +15,10 @@ namespace Quiz
 		public event GameOnEndDelegate OnEnd = delegate {};
 		
 		private readonly QuestionsReader<T> questionsReader;
-		private readonly ConsoleCommunicator communicator;
+		private readonly Communicator communicator;
 		private readonly Input input;
 		
-		public Game(QuestionsReader<T> questionsReader, ConsoleCommunicator communicator, Input input)
+		public Game(QuestionsReader<T> questionsReader, Communicator communicator, Input input)
 		{
 			this.questionsReader = questionsReader;
 			this.communicator = communicator;
